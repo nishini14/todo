@@ -1,0 +1,61 @@
+
+<html lang="en">
+<head>
+  <title>Todo List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div>
+        <div class="title">Todo List</div>
+        <p class="subtitle">A Daily Remainder For Your Activity</p>
+      </div>
+      <button id="clearCompleted" class="btn btn-danger" title="Remove all completed tasks">Clear completed</button>
+    </header>
+
+    <section class="panel" aria-labelledby="add-title">
+      <h2 id="add-title" style="position:absolute; left:-9999px">Add a task</h2>
+      <div class="row">
+        <input id="input" type="text" placeholder="What needs to be done? (e.g., Finish report)" autocomplete="off" />
+        <input id="due" type="date" />
+        <button id="add" class="btn">Add</button>
+      </div>
+      <div class="toolbar">
+        <div class="filters" role="tablist" aria-label="Filters">
+          <button class="chip active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="chip" data-filter="active" role="tab" aria-selected="false">Active</button>
+          <button class="chip" data-filter="completed" role="tab" aria-selected="false">Completed</button>
+        </div>
+        <div style="flex:1"></div>
+        <input id="search" type="search" placeholder="Search…" aria-label="Search tasks" />
+        <span class="count" id="count">0 items</span>
+      </div>
+    </section>
+
+    <ul id="list" aria-live="polite" aria-label="Todo items"></ul>
+    <div id="empty" class="empty" hidden>Add Your First Task Above</div>
+  </div>
+
+  <template id="tmpl-item">
+    <li class="item" draggable="true">
+      <div class="drag" title="Drag to reorder">⋮⋮</div>
+      <label class="content" style="display:flex; gap:10px; align-items:center">
+        <input type="checkbox" class="toggle" aria-label="Toggle completed" />
+        <span class="text" contenteditable="true" role="textbox" aria-label="Edit task"></span>
+      </label>
+      <div class="actions">
+        <div class="meta">
+          <span class="due" hidden></span>
+        </div>
+        <button class="icon-btn del" title="Delete">🗑️</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+  
